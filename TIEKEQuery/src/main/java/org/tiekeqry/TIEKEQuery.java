@@ -1,6 +1,6 @@
 package org.tiekeqry;
 
-import org.tiekeqry.net.NetConnector;
+import org.tiekeqry.net.TIEKEService;
 import org.tiekeqry.net.TIEKEConnector;
 
 public class TIEKEQuery {
@@ -15,7 +15,7 @@ public class TIEKEQuery {
 	}
 	
 	public void test() {
-		TIEKEConnector connector=new NetConnector();
+		TIEKEConnector connector=new TIEKEService();
 		connector.fetchTIEKEData(null);
 	}
 

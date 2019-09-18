@@ -1,55 +1,36 @@
 package org.tiekeqry.dto;
 
+import java.util.List;
+
 public class ResultDTO {
 	
-	private String ytjId;
-	private String companyName;
-	private String eBillAddress;
-	private String operatorId;
-	private boolean primaryAddress;
+	private OrganizationDTO organization;
+	private List<OrganizationEAddressDTO> eAddresses;
 	
 	public ResultDTO() {
 		super();
 	}
 	
-	public ResultDTO(String ytjId,String companyName,String eBillAddress,String operatorId,boolean primaryAddress) {
-		this.ytjId=ytjId;
-		this.companyName=companyName;
-		this.eBillAddress=eBillAddress;
-		this.operatorId=operatorId;
-		this.primaryAddress=primaryAddress;
+	public ResultDTO(OrganizationDTO organization,List<OrganizationEAddressDTO> eAddresses) {
+		super();
+		this.organization=organization;
+		this.eAddresses=eAddresses;
 	}
-	
-	public String getYtjId() {
-		return ytjId;
+
+	public OrganizationDTO getOrganization() {
+		return organization;
 	}
-	public void setYtjId(String ytjId) {
-		this.ytjId = ytjId;
+
+	public void setOrganization(OrganizationDTO organization) {
+		this.organization = organization;
 	}
-	public String getCompanyName() {
-		return companyName;
+
+	public List<OrganizationEAddressDTO> geteAddresses() {
+		return eAddresses;
 	}
-	public void setCompanyName(String companyName) {
-		this.companyName = companyName;
+
+	public void seteAddresses(List<OrganizationEAddressDTO> eAddresses) {
+		this.eAddresses = eAddresses;
 	}
-	public String geteBillAddress() {
-		return eBillAddress;
-	}
-	public void seteBillAddress(String eBillAddress) {
-		this.eBillAddress = eBillAddress;
-	}
-	public String getOperatorId() {
-		return operatorId;
-	}
-	public void setOperatorId(String operatorId) {
-		this.operatorId = operatorId;
-	}
-	public boolean isPrimaryAddress() {
-		return primaryAddress;
-	}
-	public void setPrimaryAddress(boolean primaryAddress) {
-		this.primaryAddress = primaryAddress;
-	}
-	
 	
 }
