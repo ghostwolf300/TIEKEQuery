@@ -43,7 +43,7 @@ public class TIEKEService implements TIEKEConnector {
 		ResultDTO result=getResult(company.getId());
 		System.out.println(result.getOrganization().getName());
 		for(OrganizationEAddressDTO eAddress : result.geteAddresses()) {
-			System.out.println(eAddress.getIdentifier());
+			System.out.println(eAddress.toString());
 		}
 		return null;
 	}

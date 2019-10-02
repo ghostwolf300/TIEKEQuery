@@ -215,7 +215,15 @@ public class OrganizationEAddressDTO {
 		this.primaryAddress = primaryAddress;
 	}
 	
-	
+	@Override
+	public String toString() {
+		return name + "; " + id + "; " + comment + "; " + identifier + "; " + token + "; " + reference + "; "
+				+ createTime + "; " + deleteTime + "; " + url + "; " + serviceId + "; " + serviceIdType + "; "
+				+ addressOwnerServiceId + "; " + addressOwnerServiceIdType + "; " + contextOfAddress + "; "
+				+ directionOfAddress + "; " + permissionToSend + "; " + ownerActive + "; " + organizationId + "; "
+				+ organizationActive + "; " + permissionToPublish + "; " + supportAttachments + "; "
+				+ specialRequirements + "; " + primaryAddress + "]";
+	}
 	
 	
 }
