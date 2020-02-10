@@ -38,14 +38,28 @@ public class TIEKEService implements TIEKEConnector {
 	public List<ResultDTO> fetchTIEKEData(List<String> ytjIds) {
 		//Helsingin kaupunki : 0201256-6
 		//Konehuolto Kaitanen : 2247743-2
-		CompanyDTO company=fetchCompanyData("0201256-6");
-		System.out.println(company.toString());
-		ResultDTO result=getResult(company.getId());
-		System.out.println(result.getOrganization().getName());
-		for(OrganizationEAddressDTO eAddress : result.geteAddresses()) {
-			System.out.println(eAddress.toString());
+		
+		List<ResultDTO> results=new ArrayList<ResultDTO>();
+		CompanyDTO company=null;
+		ResultDTO result=null;
+		
+		for(String ytjId : ytjIds) {
+			company=fetchCompanyData(ytjId);
+			System.out.println(company.toString());
+			result=getResult(company.getId());
+			results.add(result);
 		}
-		return null;
+		
+		/*
+		 * CompanyDTO company=fetchCompanyData("0201256-6");
+		 * System.out.println(company.toString()); ResultDTO
+		 * ResultDTO result=getResult(company.getId());
+		 * System.out.println(result.getOrganization().getName());
+		 * for(OrganizationEAddressDTO eAddress : result.geteAddresses()) {
+		 * System.out.println(eAddress.toString()); }
+		 */
+		
+		return results;
 	}
 	
 	private CompanyDTO fetchCompanyData(String ytjId) {
