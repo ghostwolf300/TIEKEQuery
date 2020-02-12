@@ -29,7 +29,7 @@ public class TIEKEQuery {
 		//ytjIds.add("2247743-2");
 		
 		Excel excl=new Excel();
-		excl.openFile(new File("Test File.xlsx"));
+		excl.openFile(new File("TIEKE checklist.xlsx"));
 		List<String> ytjIds=excl.readYTJIds();
 		
 		TIEKEConnector connector=new TIEKEService();
@@ -42,7 +42,7 @@ public class TIEKEQuery {
 			}
 		}
 		
-		excl.writeResults(results, new File("Test File - results.xlsx"));
+		excl.writeResults(results, new File("TIEKE checklist - results.xlsx"));
 		
 	}
 

@@ -42,12 +42,18 @@ public class TIEKEService implements TIEKEConnector {
 		List<ResultDTO> results=new ArrayList<ResultDTO>();
 		CompanyDTO company=null;
 		ResultDTO result=null;
+		int counter=0;
 		
 		for(String ytjId : ytjIds) {
 			company=fetchCompanyData(ytjId);
-			System.out.println(company.toString());
-			result=getResult(company.getId());
-			results.add(result);
+			if(company!=null) {
+				result=getResult(company.getId());
+				results.add(result);
+			}
+			counter++;
+			if((counter % 100)==0) {
+				System.out.println("Processed: "+counter);
+			}
 		}
 		
 		/*
@@ -111,10 +117,14 @@ public class TIEKEService implements TIEKEConnector {
 			}
 		}
 		
-		if(jsonArray!=null) {
-			System.out.println("Company count: "+jsonArray.size());
-			jsonCompany=(JSONObject) jsonArray.get(0);
-			company=createCompanyDTO(jsonCompany);
+		try {
+			if(jsonArray!=null) {
+				jsonCompany=(JSONObject) jsonArray.get(0);
+				company=createCompanyDTO(jsonCompany);
+			}
+		}
+		catch(IndexOutOfBoundsException ex) {
+			System.out.println("YTJID: "+ytjId+"Company count: "+jsonArray.size());
 		}
 		
 		return company;
